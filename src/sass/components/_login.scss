@@ -10,11 +10,16 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
     z-index: 500;
     opacity: 1;
+    padding: 2rem;
     transition: all 0.8s;
+
+    @media (max-width: 40em) {
+      grid-template-columns: 1fr;
+    }
 
     a {
       font-size: 1.6rem;

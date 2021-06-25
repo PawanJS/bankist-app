@@ -13,6 +13,10 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.8s;
+
+  @media (max-width: 40em) {
+    padding: 2rem;
+  }
 }
 
 .balance {
@@ -20,6 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 2rem;
 
   &__label {
@@ -37,6 +42,10 @@
     font-size: 4.5rem;
     font-weight: 400;
   }
+
+  p {
+    margin: 1rem 0 0 3rem;
+  }
 }
 
 /* MOVEMENTS */
@@ -48,9 +57,15 @@
 
   &__row {
     padding: 2.25rem 4rem;
-    display: flex;
-    align-items: center;
     border-bottom: 1px solid #eee;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+
+    @media (max-width: 30em) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
   }
 
   &__date {
@@ -82,6 +97,13 @@
     font-size: 1.7rem;
     margin-left: auto;
   }
+
+  &__value,
+  &__type {
+    @media (max-width: 35em) {
+      margin: 0;
+    }
+  }
 }
 
 /* SUMMARY */
@@ -89,8 +111,15 @@
   grid-row: 5 / 6;
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
   padding: 0 0.3rem;
   margin-top: 1rem;
+
+  &__box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
 
   &__label {
     font-size: 1.2rem;
@@ -115,14 +144,10 @@
 }
 
 /* OPERATIONS */
-
 .operation {
   border-radius: 1rem;
   padding: 3rem 4rem;
   color: #333;
-
-  &-container {
-  }
 
   &--transfer {
     background-image: linear-gradient(to top left, #ffb003, #ffcb03);
@@ -146,4 +171,13 @@
 
 .timer {
   font-weight: 600;
+}
+
+.operation,
+.summary,
+.movements,
+.logout-timer {
+  @media (max-width: 57em) {
+    grid-column: 1 / -1;
+  }
 }

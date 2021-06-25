@@ -12,9 +12,12 @@
     <title>Bankist</title>
   </head>
   <body>
-    <!-- TOP NAVIGATION -->
+    <div class="data">
+      <p class="welcome">Username: pawan & Password: 1111</p>
+      <p class="welcome mt-sm">Username: sahil & Password: 2222</p>
+    </div>
     <div class="login-container">
-      <p class="welcome">Log in to get started</p>
+      <h1 class="welcome">Log in to get started</h1>
       <form class="login">
         <input
           type="text"
@@ -30,26 +33,26 @@
         />
         <button class="login__btn">&rarr;</button>
       </form>
-      <p class="welcome">Sign-up here</p>
       <a
         href="https://bankist-web-by-pawanjs.netlify.app/"
         target="_blank"
         rel="noopener"
         rel="noreferrer"
-        >open account
+      >
+        open free account
       </a>
     </div>
 
     <main class="app">
       <!-- BALANCE -->
       <div class="balance">
+        <p class="welcome js-welcome"></p>
         <div>
           <p class="balance__label">Current balance</p>
           <p class="balance__date">
             As of <span class="date">05/03/2037</span>
           </p>
         </div>
-        <p class="welcome js-welcome"></p>
         <p class="balance__value">0000€</p>
       </div>
 
@@ -71,12 +74,19 @@
 
       <!-- SUMMARY -->
       <div class="summary">
-        <p class="summary__label">In</p>
-        <p class="summary__value summary__value--in">0000€</p>
-        <p class="summary__label">Out</p>
-        <p class="summary__value summary__value--out">0000€</p>
-        <p class="summary__label">Interest</p>
-        <p class="summary__value summary__value--interest">0000€</p>
+        <div class="summary__box">
+          <p class="summary__label">In</p>
+          <p class="summary__value summary__value--in">0000€</p>
+        </div>
+        <div class="summary__box">
+          <p class="summary__label">Out</p>
+          <p class="summary__value summary__value--out">0000€</p>
+        </div>
+        <div class="summary__box">
+          <p class="summary__label">Interest</p>
+          <p class="summary__value summary__value--interest">0000€</p>
+        </div>
+
         <button class="btn--sort">&downarrow; SORT</button>
       </div>
 
@@ -124,10 +134,7 @@
       </p>
       <button class="btn--logout js-logout mt-md">LOG OUT</button>
     </main>
-    <div class="data">
-      <p class="welcome">Username: pawan & Password: 1111</p>
-      <p class="welcome mt-sm">Username: sahil & Password: 2222</p>
-    </div>
+
     <footer class="footer">
       A project by
       <a
