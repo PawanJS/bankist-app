@@ -1,0 +1,22 @@
+@use "../abstracts/variables";
+
+@font-face {
+  font-family: 'Custom Font';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap; /* Read next point */
+  unicode-range: U+000-5FF; /* Download only latin glyphs */
+  src: local('Custom Font'),
+    url('https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap');
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #333;
+}
