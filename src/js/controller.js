@@ -1,5 +1,6 @@
 import '../sass/main.scss';
 
+// Account Details
 const account1 = {
   owner: 'Pawan',
   movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
@@ -77,7 +78,6 @@ window.addEventListener('load', () => {
 
 /////////////////////////////////////////////////
 // Functions
-
 const formatMovementDate = function (date, locale) {
   const calcDaysPassed = (date1, date2) =>
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
@@ -91,6 +91,7 @@ const formatMovementDate = function (date, locale) {
   return new Intl.DateTimeFormat(locale).format(date);
 };
 
+// Formatting currency
 const formatCur = function (value, locale, currency) {
   return new Intl.NumberFormat(locale, {
     style: 'currency',
@@ -98,6 +99,7 @@ const formatCur = function (value, locale, currency) {
   }).format(value);
 };
 
+// Display transactions
 const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = '';
 
@@ -127,11 +129,13 @@ const displayMovements = function (acc, sort = false) {
   });
 };
 
+// Display balance
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = formatCur(acc.balance, acc.locale, acc.currency);
 };
 
+// Display summary
 const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
@@ -164,6 +168,7 @@ const calcDisplaySummary = function (acc) {
 //   });
 // };
 
+// Creating usernames
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner.toLowerCase();
@@ -182,6 +187,7 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
+// Automatic logout Timer
 const startLogOutTimer = function () {
   const tick = function () {
     const min = String(Math.trunc(time / 60)).padStart(2, 0);
@@ -217,6 +223,7 @@ const startLogOutTimer = function () {
 // Event handlers
 let currentAccount, timer;
 
+// Login to account
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
   e.preventDefault();
@@ -267,6 +274,7 @@ btnLogin.addEventListener('click', function (e) {
   }
 });
 
+// Transfer money
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
   const amount = +inputTransferAmount.value;
@@ -298,6 +306,7 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+// Loan functionality
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -322,6 +331,7 @@ btnLoan.addEventListener('click', function (e) {
   inputLoanAmount.value = '';
 });
 
+// Deleting account
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -354,6 +364,7 @@ btnSort.addEventListener('click', function (e) {
   sorted = !sorted;
 });
 
+// Log out
 document.querySelector('.js-logout').addEventListener('click', function () {
   containerApp.style.opacity = 0;
   containerApp.style.visibility = 'hidden';
